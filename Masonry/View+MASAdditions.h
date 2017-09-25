@@ -10,7 +10,7 @@
 #import "MASConstraintMaker.h"
 #import "MASViewAttribute.h"
 
-/**
+/** 提供 约束构建者 block，还有用于创建 MASViewAttribute的简便方法，方法是 view + NSLayoutAttribute 对
  *	Provides constraint maker block
  *  and convience methods for creating MASViewAttribute which are view + NSLayoutAttribute pairs
  */
@@ -32,13 +32,14 @@
 @property (nonatomic, strong, readonly) MASViewAttribute *mas_baseline;
 @property (nonatomic, strong, readonly) MASViewAttribute *(^mas_attribute)(NSLayoutAttribute attr);
 
+// lzy170925注：下面两个属性只有在 iOS8.0及以上，tvOS9.0及以上，MAC OS 10.11及以上，才有
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (__TV_OS_VERSION_MIN_REQUIRED >= 9000) || (__MAC_OS_X_VERSION_MIN_REQUIRED >= 101100)
 
 @property (nonatomic, strong, readonly) MASViewAttribute *mas_firstBaseline;
 @property (nonatomic, strong, readonly) MASViewAttribute *mas_lastBaseline;
 
 #endif
-
+// lzy170925注：下面两个属性只有在 iOS8.0及以上，tvOS9.0及以上，
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 80000) || (__TV_OS_VERSION_MIN_REQUIRED >= 9000)
 
 @property (nonatomic, strong, readonly) MASViewAttribute *mas_leftMargin;
@@ -51,7 +52,7 @@
 @property (nonatomic, strong, readonly) MASViewAttribute *mas_centerYWithinMargins;
 
 #endif
-
+// lzy170925注：下面两个属性只有在 iOS11.0及以上，tvOS11.0及以上。安全区域的适配
 #if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 110000) || (__TV_OS_VERSION_MIN_REQUIRED >= 110000)
 
 @property (nonatomic, strong, readonly) MASViewAttribute *mas_safeAreaLayoutGuide;
@@ -62,12 +63,12 @@
 
 #endif
 
-/**
+/**关联这个view的key
  *	a key to associate with this view
  */
 @property (nonatomic, strong) id mas_key;
 
-/**
+/** 寻找 当前视图 和 指定视图，两个视图的 最近的 共同父视图
  *	Finds the closest common superview between this view and another view
  *
  *	@param	view	other view
@@ -76,7 +77,7 @@
  */
 - (instancetype)mas_closestCommonSuperview:(MAS_VIEW *)view;
 
-/**
+/** 为调用这个方法的视图，创建一个 『约束构建者』
  *  Creates a MASConstraintMaker with the callee view.
  *  Any constraints defined are added to the view or the appropriate superview once the block has finished executing
  *
