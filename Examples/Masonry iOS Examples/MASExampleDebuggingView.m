@@ -84,6 +84,125 @@
         make.height.equalTo(@[greenView, blueView]);
     }];
     
+    /* lzy170921注:
+     2017-09-21 09:32:46.615 Masonry iOS Examples[2094:44649] Simulator user has requested new graphics quality: 10
+     2017-09-21 09:32:55.153081+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConflictingConstraint[0] UILabel:blueView.left == MASExampleDebuggingView:superview.left + 1>",
+     "<MASLayoutConstraint:0x6000000a4bc0 UILabel:blueView.left == MASExampleDebuggingView:superview.left + 10>"
+     )
+     
+     Will attempt to recover by breaking constraint
+     <MASLayoutConstraint:0x6000000a4bc0 UILabel:blueView.left == MASExampleDebuggingView:superview.left + 10>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     2017-09-21 09:32:55.153835+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConflictingConstraint[3] UILabel:blueView.bottom == MASExampleDebuggingView:superview.bottom + 1>",
+     "<MASLayoutConstraint:BottomConstraint UILabel:blueView.bottom == MASExampleDebuggingView:superview.bottom - 10>"
+     )
+     
+     Will attempt to recover by breaking constraint
+     <MASLayoutConstraint:ConflictingConstraint[3] UILabel:blueView.bottom == MASExampleDebuggingView:superview.bottom + 1>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     2017-09-21 09:32:55.154599+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConflictingConstraint[1] UILabel:blueView.right == MASExampleDebuggingView:superview.right + 1>",
+     "<MASLayoutConstraint:0x6000000a4b00 UILabel:blueView.right == MASExampleDebuggingView:superview.right - 10>"
+     )
+     
+     Will attempt to recover by breaking constraint
+     <MASLayoutConstraint:ConflictingConstraint[1] UILabel:blueView.right == MASExampleDebuggingView:superview.right + 1>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     2017-09-21 09:32:55.155357+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConstantConstraint UILabel:blueView.height >= 5000>",
+     "<MASLayoutConstraint:ConflictingConstraint[2] UILabel:blueView.top == MASExampleDebuggingView:superview.top + 1>",
+     "<MASLayoutConstraint:0x6000000a49e0 UILabel:blueView.top == UIView:greenView.bottom + 10>",
+     "<MASLayoutConstraint:0x6000000a4c80 UILabel:blueView.height == UIView:greenView.height>",
+     "<MASLayoutConstraint:0x6000000a5280 UIView:greenView.top >= MASExampleDebuggingView:superview.top + 10>"
+     )
+     
+     Will attempt to recover by breaking constraint
+     <MASLayoutConstraint:ConstantConstraint UILabel:blueView.height >= 5000>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     2017-09-21 09:32:55.157122+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConflictingConstraint[2] UILabel:blueView.top == MASExampleDebuggingView:superview.top + 1>",
+     "<MASLayoutConstraint:0x6000000a49e0 UILabel:blueView.top == UIView:greenView.bottom + 10>",
+     "<MASLayoutConstraint:0x6000000a4c80 UILabel:blueView.height == UIView:greenView.height>",
+     "<MASLayoutConstraint:0x6000000a5280 UIView:greenView.top >= MASExampleDebuggingView:superview.top + 10>"
+     )
+     
+     Will attempt to recover by breaking constraint
+     <MASLayoutConstraint:0x6000000a49e0 UILabel:blueView.top == UIView:greenView.bottom + 10>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     2017-09-21 09:32:55.158319+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConflictingConstraint[2] UILabel:blueView.top == MASExampleDebuggingView:superview.top + 1>",
+     "<MASLayoutConstraint:0x6000000a4c80 UILabel:blueView.height == UIView:greenView.height>",
+     "<MASLayoutConstraint:0x6000000a5280 UIView:greenView.top >= MASExampleDebuggingView:superview.top + 10>",
+     "<MASLayoutConstraint:0x6000000a5340 UIView:greenView.bottom == UILabel:blueView.top - 10>"
+     )
+     
+     Will attempt to recover by breaking constraint
+     <MASLayoutConstraint:0x6000000a5340 UIView:greenView.bottom == UILabel:blueView.top - 10>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     2017-09-21 09:32:55.159212+0800 Masonry iOS Examples[2094:44649] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+     Probably at least one of the constraints in the following list is one you don't want.
+     Try this:
+     (1) look at each constraint and try to figure out which you don't expect;
+     (2) find the code that added the unwanted constraint or constraints and fix it.
+     (
+     "<MASLayoutConstraint:ConflictingConstraint[2] UILabel:blueView.top == MASExampleDebuggingView:superview.top + 1>",
+     "<MASLayoutConstraint:340954 UILabel:blueView.height == UIView:redView.height>",
+     "<MASLayoutConstraint:0x6000000a5820 UIView:redView.top == MASExampleDebuggingView:superview.top + 10>",
+     "<MASLayoutConstraint:0x6000000a58e0 UIView:redView.bottom == UILabel:blueView.top - 10>"
+     )
+     
+     Will attempt to recover by breaking constraint 
+     <MASLayoutConstraint:0x6000000a58e0 UIView:redView.bottom == UILabel:blueView.top - 10>
+     
+     Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+     The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+     */
+    
+    
     return self;
 }
 
