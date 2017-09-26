@@ -55,7 +55,11 @@
 
     [topSubview makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_topLayoutGuide);
-        make.centerX.equalTo(@0);
+        make.centerX.equalTo(@(0));
+        /* lzy170926注:
+         make.centerX.equalTo(@(-100));
+         make.centerX.equalTo(self.view);
+         */
         make.width.equalTo(@20);
         make.height.equalTo(@20);
     }];
