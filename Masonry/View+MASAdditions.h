@@ -6,10 +6,12 @@
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 
-#import "MASUtilities.h"
-#import "MASConstraintMaker.h"
-#import "MASViewAttribute.h"
-
+#import "MASUtilities.h"// 平台兼容和工具方法
+#import "MASConstraintMaker.h"// 约束构建者
+#import "MASViewAttribute.h"// mas封装layout 属性的类，其继承自NSObject
+/* lzy170926注:
+ 这个类似是 view的分类。动态得给view类添加方法。
+ */
 /** 提供 约束构建者 block，还有用于创建 MASViewAttribute的简便方法，方法是 view + NSLayoutAttribute 对
  *	Provides constraint maker block
  *  and convience methods for creating MASViewAttribute which are view + NSLayoutAttribute pairs
@@ -77,7 +79,7 @@
  */
 - (instancetype)mas_closestCommonSuperview:(MAS_VIEW *)view;
 
-/** 为调用这个方法的视图，创建一个 『约束构建者』
+/** 为调用这个方法的视图，创建一个 『约束构建者』。里头定义的约束都将加到view上或者合适的父视图上。
  *  Creates a MASConstraintMaker with the callee view.
  *  Any constraints defined are added to the view or the appropriate superview once the block has finished executing
  *
@@ -87,7 +89,7 @@
  */
 - (NSArray *)mas_makeConstraints:(void(NS_NOESCAPE ^)(MASConstraintMaker *make))block;
 
-/**
+/**里头定义的约束都将加到view上或者合适的父视图上。 没有的约束添加，有的约束按block中的进行更新
  *  Creates a MASConstraintMaker with the callee view.
  *  Any constraints defined are added to the view or the appropriate superview once the block has finished executing.
  *  If an existing constraint exists then it will be updated instead.
@@ -98,7 +100,7 @@
  */
 - (NSArray *)mas_updateConstraints:(void(NS_NOESCAPE ^)(MASConstraintMaker *make))block;
 
-/**
+/** 清理掉之前添加在这个视图上的所有约束。里头定义的约束都将加到view上或者合适的父视图上。
  *  Creates a MASConstraintMaker with the callee view.
  *  Any constraints defined are added to the view or the appropriate superview once the block has finished executing.
  *  All constraints previously installed for the view will be removed.
