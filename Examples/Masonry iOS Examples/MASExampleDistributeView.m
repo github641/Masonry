@@ -23,6 +23,7 @@
         [self addSubview:view];
         [arr addObject:view];
     }
+
     
     unsigned int type  = arc4random()%4;
     switch (type) {
@@ -58,6 +59,22 @@
         default:
             break;
     }
+    // lzy170927注：分发 方法 二 的示例
+    NSMutableArray *arr2 = @[].mutableCopy;
+    for (int i = 0; i < 4; i++) {
+        UIView *view = UIView.new;
+        view.backgroundColor = [self randomColor];
+        view.layer.borderColor = UIColor.blackColor.CGColor;
+        view.layer.borderWidth = 2;
+        [self addSubview:view];
+        [arr2 addObject:view];
+    }
+    
+    [arr2 mas_distributeViewsAlongAxis:MASAxisTypeVertical withFixedItemLength:30 leadSpacing:2 tailSpacing:2];
+    [arr2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@50);
+        make.left.equalTo(self).offset(5);
+    }];
     
     return self;
 }

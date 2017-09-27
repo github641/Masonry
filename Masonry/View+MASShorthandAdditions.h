@@ -8,9 +8,18 @@
 
 #import "View+MASAdditions.h"
 
+// lzy170927注：仅仅当这个宏被用户定义时，这个文件才有实质内容。
 #ifdef MAS_SHORTHAND
 
-/**
+/* lzy170927注:用法。
+ 
+ 一般在pch文件中，或者在导入头文件 Masonry.h之前，定义这个宏
+ //define this constant if you want to use Masonry without the 'mas_' prefix
+ #define MAS_SHORTHAND
+ #import "Masonry.h"
+ 
+ */
+/** view写约束的 快捷方式：可以不必写 「mas_」这个前缀。
  *	Shorthand view additions without the 'mas_' prefixes,
  *  only enabled if MAS_SHORTHAND is defined
  */
@@ -63,6 +72,64 @@
 - (NSArray *)remakeConstraints:(void(^)(MASConstraintMaker *make))block;
 
 @end
+
+/* lzy170927注:
+ 
+ #def 代表块(参数) 实际块
+ 
+ 宏定义中，实际块中， 参数之前总会有两个『井号』
+ 
+ e.g.
+ #ifndef YYSYNTH_DUMMY_CLASS
+ #define YYSYNTH_DUMMY_CLASS(_name_) \
+ @interface YYSYNTH_DUMMY_CLASS_ ## _name_ : NSObject @end \
+ @implementation YYSYNTH_DUMMY_CLASS_ ## _name_ @end
+ #endif
+ 
+ e.g.
+ #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
+ \
+ static classname *shared##classname = nil; \
+ \
+ + (classname *)shared##classname \
+ { \
+ @synchronized(self) \
+ { \
+ if (shared##classname == nil) \
+ { \
+ shared##classname = [[self alloc] init]; \
+ } \
+ } \
+ \
+ return shared##classname; \
+ } \
+ \
+ + (id)allocWithZone:(NSZone *)zone \
+ { \
+ @synchronized(self) \
+ { \
+ if (shared##classname == nil) \
+ { \
+ shared##classname = [super allocWithZone:zone]; \
+ return shared##classname; \
+ } \
+ } \
+ \
+ return nil; \
+ } \
+ \
+ - (id)copyWithZone:(NSZone *)zone \
+ { \
+ return self; \
+ }
+ 
+ 作者：是我始终拒绝成长吗
+ 链接：http://www.jianshu.com/p/cda299a18b67
+ 來源：简书
+ 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ 
+ 如下，Masonry中也是这样定义的，这是范例。
+ */
 
 #define MAS_ATTR_FORWARD(attr)  \
 - (MASViewAttribute *)attr {    \

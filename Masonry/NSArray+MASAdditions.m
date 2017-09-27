@@ -15,6 +15,7 @@
     NSMutableArray *constraints = [NSMutableArray array];
     for (MAS_VIEW *view in self) {
         NSAssert([view isKindOfClass:[MAS_VIEW class]], @"All objects in the array must be views");
+        // 先对数组元素做过滤，之后挨个调用view的mas_make方法。所有的元素的make都放到maker数组中。另外两个方法同理。
         [constraints addObjectsFromArray:[view mas_makeConstraints:block]];
     }
     return constraints;
@@ -43,15 +44,15 @@
         NSAssert(self.count>1,@"views to distribute need to bigger than one");
         return;
     }
-    
+    // 共同父视图
     MAS_VIEW *tempSuperView = [self mas_commonSuperviewOfViews];
-    if (axisType == MASAxisTypeHorizontal) {
+    if (axisType == MASAxisTypeHorizontal) {// 方向判断
         MAS_VIEW *prev;
         for (int i = 0; i < self.count; i++) {
             MAS_VIEW *v = self[i];
             [v mas_makeConstraints:^(MASConstraintMaker *make) {
                 if (prev) {
-                    make.width.equalTo(prev);
+                    make.width.equalTo(prev);// 水平方向，约束宽
                     make.left.equalTo(prev.mas_right).offset(fixedSpacing);
                     if (i == self.count - 1) {//last one
                         make.right.equalTo(tempSuperView).offset(-tailSpacing);
@@ -99,7 +100,7 @@
         for (int i = 0; i < self.count; i++) {
             MAS_VIEW *v = self[i];
             [v mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.width.equalTo(@(fixedItemLength));
+                make.width.equalTo(@(fixedItemLength));// 水平方向，约束宽
                 if (prev) {
                     if (i == self.count - 1) {//last one
                         make.right.equalTo(tempSuperView).offset(-tailSpacing);
@@ -121,7 +122,7 @@
         for (int i = 0; i < self.count; i++) {
             MAS_VIEW *v = self[i];
             [v mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.height.equalTo(@(fixedItemLength));
+                make.height.equalTo(@(fixedItemLength));// 垂直方向，约束高
                 if (prev) {
                     if (i == self.count - 1) {//last one
                         make.bottom.equalTo(tempSuperView).offset(-tailSpacing);
@@ -140,6 +141,7 @@
     }
 }
 
+// lzy170927注：获取数组中所有masView的共同父视图
 - (MAS_VIEW *)mas_commonSuperviewOfViews
 {
     MAS_VIEW *commonSuperview = nil;
