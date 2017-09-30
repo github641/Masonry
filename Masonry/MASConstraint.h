@@ -5,15 +5,24 @@
 //  Created by Jonas Budelmann on 22/07/13.
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
-
+/* lzy170930注:
+ 这个类，是Masonry约束的包装类
+ */
 #import "MASUtilities.h"
 
-/**
+/** 让Constraints能使用链式语法创建。
+ 一个MASConstraint对象可以代表：
+ 1、一条单独的NSLayoutConstraint (MASViewConstraint)
+ 2、一组NSLayoutConstraints (MASComposisteConstraint)
  *	Enables Constraints to be created with chainable syntax
- *  Constraint can represent single NSLayoutConstraint (MASViewConstraint) 
+ *  Constraint can represent single NSLayoutConstraint (MASViewConstraint)
  *  or a group of NSLayoutConstraints (MASComposisteConstraint)
  */
 @interface MASConstraint : NSObject
+
+/* lzy170930注:
+ 这个类看不下去了，看不懂block的语法。
+ */
 
 // Chaining Support
 
