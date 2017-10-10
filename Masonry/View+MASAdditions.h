@@ -12,7 +12,7 @@
 /* lzy170926注:
  这个类似是 view的分类。动态得给view类添加方法。
  */
-/** 提供 约束构建者 block，还有用于创建 MASViewAttribute的简便方法，方法是 view + NSLayoutAttribute 对
+/** 提供 约束构建者 block，还有用于创建 MASViewAttribute的简便方法：view + NSLayoutAttribute 对
  *	Provides constraint maker block
  *  and convience methods for creating MASViewAttribute which are view + NSLayoutAttribute pairs
  */

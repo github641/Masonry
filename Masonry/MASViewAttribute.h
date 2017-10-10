@@ -5,7 +5,11 @@
 //  Created by Jonas Budelmann on 21/07/13.
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
-
+/* lzy171010注:
+ mas封装的元组，存储着
+ 视图对象 与 layout属性
+ 的类
+ */
 #import "MASUtilities.h"
 
 /**

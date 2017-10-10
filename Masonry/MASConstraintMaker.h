@@ -5,7 +5,9 @@
 //  Created by Jonas Budelmann on 20/07/13.
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
-
+/* lzy171010注:
+ 约束构建者
+ */
 #import "MASConstraint.h"
 #import "MASUtilities.h"
 

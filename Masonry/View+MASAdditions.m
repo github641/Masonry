@@ -12,8 +12,15 @@
 @implementation MAS_VIEW (MASAdditions)
 
 - (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block {
+    
+    /* lzy171010注:使用示例：
+     [view mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.edges.equalTo(lastView).insets(UIEdgeInsetsMake(5, 10, 15, 20));
+     }];
+     */
+    
     /* lzy170926注:
-     用代码写约束，都需要把 系统自动将autoresizing翻译为约束的开关关闭。
+     用代码写约束，都需要把 自动将autoresizing翻译为约束的开关关闭。
      IB在界面上添加第一条autolayout约束时，自动帮开发者关闭了。
      */
     self.translatesAutoresizingMaskIntoConstraints = NO;

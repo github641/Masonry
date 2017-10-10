@@ -5,7 +5,9 @@
 //  Created by Jonas Budelmann on 3/08/13.
 //  Copyright (c) 2013 Jonas Budelmann. All rights reserved.
 //
-
+/* lzy171010注:
+ 为了方便调试约束，继承自 系统的约束（NSLayoutConstraint），并扩展了附加信息（key）
+ */
 #import "MASUtilities.h"
 
 /**

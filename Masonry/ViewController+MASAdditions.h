@@ -5,12 +5,15 @@
 //  Created by Craig Siemens on 2015-06-23.
 //
 //
+/* lzy171010注:
+ 这个分类用于处理，layoutGuide相关
+ */
 
 #import "MASUtilities.h"
 #import "MASConstraintMaker.h"
 #import "MASViewAttribute.h"
 
-// lzy170927注：这个宏在Utilities类中。是ViewController的替代品
+// lzy170927注：这个宏在Utilities类中。是ViewController的平台兼容方式
 #ifdef MAS_VIEW_CONTROLLER
 
 @interface MAS_VIEW_CONTROLLER (MASAdditions)

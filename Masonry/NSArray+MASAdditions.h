@@ -5,6 +5,9 @@
 //  Created by Daniel Hammond on 11/26/13.
 //
 //
+/* lzy171010注:
+ 数组元素，统一处理约束的分类。
+ */
 
 #import "MASUtilities.h"
 #import "MASConstraintMaker.h"

@@ -5,7 +5,10 @@
 //  Created by Jonas Budelmann on 20/07/13.
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
-
+/* lzy171010注:
+ mas约束的高级api，表示单条约束：
+ 这条约束包含了 『创建一条NSLayoutConstraint所必须的属性』，并将本约束添加到合适的view上。
+ */
 #import "MASViewAttribute.h"
 #import "MASConstraint.h"
 #import "MASLayoutConstraint.h"

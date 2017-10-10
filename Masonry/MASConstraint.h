@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 cloudling. All rights reserved.
 //
 /* lzy170930注:
- 这个类，是Masonry约束的包装类
+ 这个类，是Masonry 单条约束的包装类
  */
 #import "MASUtilities.h"
 
@@ -14,6 +14,7 @@
  一个MASConstraint对象可以代表：
  1、一条单独的NSLayoutConstraint (MASViewConstraint)
  2、一组NSLayoutConstraints (MASComposisteConstraint)
+ 
  *	Enables Constraints to be created with chainable syntax
  *  Constraint can represent single NSLayoutConstraint (MASViewConstraint)
  *  or a group of NSLayoutConstraints (MASComposisteConstraint)
